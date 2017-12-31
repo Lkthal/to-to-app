@@ -5,9 +5,37 @@ function onReady(){
   const toDoList = document.getElementById('toDoList');
 
 function createNewToDo(){
+
+  if(!newToDoText.value){return;}
   toDos.push({
     title: newToDoText.value,
     complete: false
+  });
+
+  newToDoText.value= '';
+
+  renderTheUI();
+}
+
+function renderTheUI(){
+  const toDoList = document.getElementById('toDoList');
+
+  toDoList.textContent = '';
+
+
+
+  toDos.forEach(function(todo){
+    const newTodo = document.createElement('li');
+
+    const checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+
+    const title = document.createElement('span');
+    newLi.textContent = toDo.title;
+
+    toDoList.appendChild(newLi);
+    newLi.appendChild(checkbox);
+
   });
 }
 
@@ -40,11 +68,8 @@ function createNewToDo(){
 
 
   });
-
-
-
-
-
+//adding UI
+renderTheUI();
 }
 
 window.onload = function () {

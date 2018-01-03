@@ -12,7 +12,7 @@ function createNewToDo(){
   toDos.push({
     title: newToDoText.value,
     complete: false,
-    id: id.value;
+    id: id.value
   });
 
   id+=1;
@@ -29,8 +29,8 @@ function renderTheUI(){
 
 
 
-  toDos.forEach(function(todo){
-    const newTodo = document.createElement('li');
+  toDos.forEach(function(toDo){
+    const newLi = document.createElement('li');
     const button = document.createElement("button");
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
@@ -41,6 +41,11 @@ function renderTheUI(){
     toDoList.appendChild(newLi);
     newLi.appendChild(checkbox);
     newLi.appendChild(button);
+
+    button.addEventListener ("click", event => {
+    deleteToDo(toDo.id);
+    renderTheUI();
+    });
 
   });
 }
@@ -79,10 +84,7 @@ function deleteToDo(id){
   toDos = toDos.filter( item => item.id !== id);
 }
 
-button.addEventListener ("click", event => {
-deleteToDo(toDo.id);
-renderTheUI();
-});
+
 //adding UI
 renderTheUI();
 }

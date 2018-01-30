@@ -39,19 +39,17 @@ function renderTheUI(){
 
     toDoList.appendChild(newLi);
     newLi.appendChild(checkbox);
-    //newLi.appendChild(button);
 
 
-    //renderTheUI();
     });
 
-}
+  }
 
    addToDoForm.addEventListener('submit', event => {
        event.preventDefault();
        createNewToDo();
   //     // get the text
-  //     let title = newToDoText.value;
+       let title = newToDoText.value;
   //
   //     // create a new li
       let text = document.getElementById('toDoList').value;
@@ -59,13 +57,13 @@ function renderTheUI(){
 
   //
   //     // create a new input
-  //     let checkbox = document.createElement('input');
+       let checkbox = document.createElement('input');
   //
   //     // set the input's type to checkbox
   //     checkbox.type = "checkbox";
   //
   //     // set the title
-  //     //newLi.textContent = title;
+       newLi.textContent = title;
   //
   //     // attach the checkbox to the li
   //     newLi.appendChild(checkbox);
@@ -74,14 +72,18 @@ function renderTheUI(){
   //     toDoList.appendChild(newLi);
   //
   //     //empty the input
-  //     newToDoText.value = '';
+       newToDoText.value = '';
   //
+
+
    });
-deleteAll.addEventListener('click', event => {
-  let text = document.getElementById('toDoList');
-  let newLi = document.getElementById('li');
-  text.value = '';
-});
+
+
+   deleteAll.addEventListener('click', event => {
+    console.log("its running");
+    toDoList.innerHTML = '';
+
+ });
 
 //adding UI
 renderTheUI();

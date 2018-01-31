@@ -80,8 +80,15 @@ function renderTheUI(){
 
 
    deleteAll.addEventListener('click', event => {
-    console.log("its running");
-    toDoList.innerHTML = '';
+    console.log(toDoList.childNodes);
+    for(let i=0; i<toDos.length; i++){
+      console.log("this ran");
+      //trying to access toDoList.childNodes and check to see if the attribute Checked is equal to true or fals
+      if(true){
+          console.log("if condition is callled");
+      };
+   }
+
 
  });
 
